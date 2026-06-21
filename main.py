@@ -1,23 +1,30 @@
-
-from mascota import Mascota
-
-def main():
-    print("___GESTION DE MASCOTAS (Enfoque POO) ---\n")
-    # Instanciacion : Creacion del primer objeto de la clase Mascota
-    mascota1 = Mascota("Max" , "Perro" , 3) # type: ignore
-    # Instancion : Creacion del segundo objeto de la clase Mascota
-    mascota2 = Mascota("Luna" , "Gato" , 2) # type: ignore
-    # Ejecucion de metodos para el objeto 1
-    print("Datos del Objeto 1 ")
-    mascota1.mostrar_informacion()
-    mascota1.hacer_sonido()
-    print("\n" + "="*40 + "\n")
-     
-     # Ejecucion de metodos para el objeto 2
-    print("Datos del Objeto 2")
-    mascota2.mostrar_informacion()
-    mascota2.hacer_sonido()
-    
+from SERVICIOS.Restaurante import Restaurante
+from MODELOS.producto import Producto
+from MODELOS.cliente import Cliente
+def ejecutar_sistema():
+    print("===INICIANDO SISTEMA DE GESTION DE RESTAURANTE ===\n")
+    #1. Instanciar el servicio principal
+    mi_restaurante = Restaurante("La Sazon Amazonica")
+    # 2.Crear objetos de la clase Producto
+    print("--- Registrando Productos ""---")
+    platillo1 = Producto(1, "El Maito",8.50)
+    platillo2 = Producto(2,"Ayampaco", 6.00)
+    bebida1 = Producto(3, "Chicha de Chonta", 1.50)
+    # Agregar productos al sistema
+    mi_restaurante.registrar_producto(platillo1)
+    mi_restaurante.registrar_producto(platillo2)
+    mi_restaurante.registrar_producto(bebida1)
+    # 3. Crear objetos de la clase Cliente
+    print("\n--- Registrando Clientes ---")
+    Cliente1 = Cliente("0941035859", "claudia rizo")
+    Cliente2 = Cliente("0924438138", "kleber rivas")
+    # Agregar cliente al sistema
+    mi_restaurante.registrar_cliente(Cliente1)
+    mi_restaurante.registrar_cliente(Cliente2)
+    # 4. Mostrar la informacion organizada en la consola
+    mi_restaurante.mostrar_menu()
+    mi_restaurante.mostrar_clientes()
+    print("\n=== PROCESO FINALIZADO CON EXITO ===")
 if __name__ == "__main__":
-    main()
-    
+            # Garantizada que el codigo solo se ejecute si este archivo es corrido directamente
+     ejecutar_sistema()
